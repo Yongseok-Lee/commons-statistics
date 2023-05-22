@@ -86,7 +86,7 @@ public final class BinomialDistribution extends AbstractDiscreteDistribution {
         }
         ArgumentUtils.checkProbability(p);
         // Avoid p = -0.0 to avoid returning -0.0 for some probability computations.
-        return new BinomialDistribution(trials, Math.abs(p));
+        return new BinomialDistribution(trials, p);
     }
 
     /**
@@ -110,7 +110,7 @@ public final class BinomialDistribution extends AbstractDiscreteDistribution {
     /** {@inheritDoc} */
     @Override
     public double probability(int x) {
-        if (x > numberOfTrials) {
+        if (x < 0 || x > numberOfTrials) {
             return 0;
         } else if (x == 0) {
             return pmf0;
