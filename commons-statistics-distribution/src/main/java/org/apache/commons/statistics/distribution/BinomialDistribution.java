@@ -148,7 +148,7 @@ public final class BinomialDistribution extends AbstractDiscreteDistribution {
             return pmf0;
         }
         return RegularizedBeta.complement(probabilityOfSuccess,
-                                          x + 1.0, (double) numberOfTrials - x);
+                                          x + 1.0, numberOfTrials - x);
     }
 
     /** {@inheritDoc} */
