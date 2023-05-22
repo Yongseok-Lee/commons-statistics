@@ -110,7 +110,7 @@ public final class BinomialDistribution extends AbstractDiscreteDistribution {
     /** {@inheritDoc} */
     @Override
     public double probability(int x) {
-        if (x < 0 || x > numberOfTrials) {
+        if (x > numberOfTrials) {
             return 0;
         } else if (x == 0) {
             return pmf0;
@@ -142,7 +142,7 @@ public final class BinomialDistribution extends AbstractDiscreteDistribution {
     public double cumulativeProbability(int x) {
         if (x < 0) {
             return 0.0;
-        } else if (x > numberOfTrials) {
+        } else if (x >= numberOfTrials) {
             return 1.0;
         } else if (x == 0) {
             return pmf0;
